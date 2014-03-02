@@ -1,0 +1,28 @@
+.sidebar {
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 0px 1px 0px #fff;
+  background-color: #f7f5fa;
+  border-radius: 5px;
+}
+.wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0px auto -60px;
+  padding: 0px 0px 60px;
+}
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+#loginbox {
+  margin: 20% auto;
+  max-width: 400px;
+  padding: 15px;
+  background-color: #e1e1e1;
+  border-radius: 10px;
+}
+.post {
+  margin: 84px auto 20px;
+}

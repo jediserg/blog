@@ -6,7 +6,8 @@ lib-cov
 *.out
 *.pid
 *.gz
-
+build
+bower_components
 pids
 logs
 results

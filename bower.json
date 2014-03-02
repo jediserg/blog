@@ -1,0 +1,21 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jediserg/blog",
+  "authors": [
+    "Sergey Kolesov"
+  ],
+  "description": "skeleton for blog",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "jquery": "1"
+  }
+}
