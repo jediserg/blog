@@ -12,7 +12,8 @@
     "bootstrap-stylus": "*",
     "coffee-script": "*",
     "mocha": "*",
-    "nib": "0.9.x"
+    "nib": "0.9.x",
+    "nconf": "^0.6.9"
   },
   "devDependencies": {
     "grunt": "^0.4.2",

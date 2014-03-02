@@ -2,6 +2,10 @@ express = require "express"
 http = require "http"
 path = require "path"
 app = express()
+config = require "nconf"
+
+app.config = config
+app.config.argv().file({file : "config.json"})
 
 require('./lib/db')()
 	
