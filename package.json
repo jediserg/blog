@@ -13,7 +13,9 @@
     "coffee-script": "*",
     "mocha": "*",
     "nib": "0.9.x",
-    "nconf": "^0.6.9"
+    "nconf": "^0.6.9",
+    "bootable-environment": "^0.2.0",
+    "require-tree": "^0.3.3"
   },
   "devDependencies": {
     "grunt": "^0.4.2",

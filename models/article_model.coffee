@@ -30,5 +30,9 @@ ArticleSchema.statics.getPages = (num, cb) ->
           cb({}, 0, 0)
         else
           cb(articles, count, articles_at_page)
+ArticleSchema.statics.crudOptions = create : "admin"
+                                    read   : "all"
+                                    update : "admin"
+                                    del    : "admin"
  
 module.exports = mongoose.model 'Article', ArticleSchema
