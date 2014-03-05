@@ -1,0 +1,20 @@
+{
+	"process": 
+		{
+			"port": "3000"
+		},
+	"views":
+		{
+			"dir": "/views",
+			"engine": "jade",
+			"pretty": true
+		},
+	"session":
+		{
+			"secret": "keyboard cat"
+		},
+	"static":
+		{
+			"dir": "public"
+		}
+}
