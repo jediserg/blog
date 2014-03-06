@@ -37,5 +37,6 @@ ArticleSchema.statics.crudOptions =
 	del    : "admin"
 
 ArticleSchema.statics.idField = "url"
+ArticleSchema.statics.sortField = "create_date"
 
 module.exports = mongoose.model 'Article', ArticleSchema

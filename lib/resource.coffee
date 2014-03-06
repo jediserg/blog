@@ -45,25 +45,28 @@ getOneMiddleware = (model) ->
 		res.json obj
 
 getPageMiddleware = (model, obj_count) ->
-	return (res, req, next) ->
-		getResult = () ->
-			if err then return res.send(500)
-
-			model.count({}).exec(err, count) ->
+	return (req, res, next) ->
+		getResult = (objects) ->
+			model.count({}).exec (err, count) ->
 				result = 
 					count: count
 					data: objects
-
+				console.log res
 				res.json result
 		sort_opt = {}
+		sort_field = "_id"
+		if model.sortField? then sort_field = model.sortField
+
 		sort_opt[sort_field] = 1
 
 		if obj_count?
 			model.find({}).sort(sort_opt).skip((req.page - 1) * obj_count).limit(obj_count).exec (err, objects) ->
-				return getResult()
+				if err then return res.send(500)
+				return getResult(objects)
 		else
 			model.find({}).sort(sort_opt).exec (err, objects) ->	
-				return getResult()
+				if err then return res.send(500)
+				return getResult(objects)
 		
 #Options format
 # {read:"all", update: "admin", create: "admin", delete: "admin", cache: true}
