@@ -10,7 +10,19 @@ module.exports = (app) ->
 	#console.log app.config
 
 	#initialize db
-	require('../lib/db')()
+	require('../lib/db')(app.config.db)
+	app.models = require_tree("../models")
+	console.log process.argv
+	if process.argv.length > 1
+		if process.argv[1] == "--init"
+			usr = new app.models.user_model
+			for key, value of app.admin_panel.user
+				usr[key] = value
+
+			usr.save (err) ->
+				if err 
+					console.log err
+				process.exit(1)
 
 	# all environments
 	#console.log config.process
@@ -27,7 +39,7 @@ module.exports = (app) ->
 
 	require('../lib/auth')(app)
 
-	app.models = require_tree("../models")
+	
 	require("./resource").load(app)
 
 	console.log config.static.dir

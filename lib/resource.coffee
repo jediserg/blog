@@ -71,7 +71,6 @@ getPageMiddleware = (model, obj_count) ->
 #Options format
 # {read:"all", update: "admin", create: "admin", delete: "admin", cache: true}
 add = (app, model) -> 
-	console.log "Add model"
 	if not model.crudOptions?
 		console.log "skip model:" + model.modelName
 		return
@@ -94,7 +93,6 @@ add = (app, model) ->
 	root = app.config.models.root
 	options = model.crudOptions
 
-	console.log options
 	if options.create?
 		app.post root + model.modelName.toLowerCase(), aclMiddleware(options.create), createMiddleware(model)
 
@@ -111,10 +109,4 @@ add = (app, model) ->
 module.exports.load = (app) ->
 	console.log "Load models"
 	for file, model of app.models
-		console.log model
-		console.log "Add model-" + file + "," + model.modelName
-		console.log model.crudOptions
 		add(app, model)
-	console.log "Routes"
-	console.log app.routes
-

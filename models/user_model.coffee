@@ -10,7 +10,7 @@ UserSchema = mongoose.Schema
 		type: String, required: true, unique: true
 	password:
 		type: String, required: true
-	role:
+	type:
 		type: String, required: true
 
 #Bcrypt middleware

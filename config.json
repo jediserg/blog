@@ -21,5 +21,26 @@
 		{
 			"root": "/crud/",
 			"onpage": "10"
+		},
+	"admin_panel":
+		{
+			"user":
+				{
+					"username": "admin",
+					"email": "admin@host",
+					"type":"admin",
+					"password": "admin"
+				},
+			"url": "/admin"
+		},
+	"auth":
+		{
+			"login": "/login",
+			"logout": "/logout",
+			"profile": "/profile"
+		},
+	"db":
+		{
+			"url": "mongodb://localhost/new_blog"
 		}
 }

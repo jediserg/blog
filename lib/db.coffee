@@ -1,6 +1,6 @@
-module.exports = () ->	
+module.exports = (config) ->	
 	mongoose = require "mongoose"
-	mongoose.connect 'mongodb://localhost/new_blog'
+	mongoose.connect config.url
 	db = mongoose.connection
 
 	db.on 'error', console.error.bind(console, 'connection error:')
