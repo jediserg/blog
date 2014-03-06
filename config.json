@@ -16,5 +16,10 @@
 	"static":
 		{
 			"dir": "public"
+		},
+	"models":
+		{
+			"root": "/crud/",
+			"onpage": "10"
 		}
 }

@@ -15,7 +15,11 @@
     "nib": "0.9.x",
     "nconf": "^0.6.9",
     "bootable-environment": "^0.2.0",
-    "require-tree": "^0.3.3"
+    "require-tree": "^0.3.3",
+    "mongoose": "^3.8.8",
+    "passport": "^0.2.0",
+    "passport-local": "^0.1.6",
+    "bcrypt": "^0.7.7"
   },
   "devDependencies": {
     "grunt": "^0.4.2",

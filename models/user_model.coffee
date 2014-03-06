@@ -33,7 +33,11 @@ UserSchema.methods.comparePassword = (candidatePassword, cb)->
 			return cb err if err
 			cb null, isMatch
 
-#UserSchema.statics.routeOptions = create :read : ["self", "admin"]
+UserSchema.statics.crudOptions = 
+	create : "admin"
+	read : "admin"
+	update: "admin"
+	delete: "admin"
 
 # Seed a user
 module.exports = mongoose.model('User', UserSchema);
