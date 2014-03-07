@@ -25,7 +25,22 @@ passport.serializeUser (user, done) ->
 
 passport.deserializeUser (id, done) -> User.findById id, (err, user) -> done(err, user)
 
-module.exports = (app) ->
+module.exports.aclMiddleware = (userType) ->
+	return (req, res, next) ->
+		if userType == "all" then return next()
+
+		if !req.isAuthenticated()
+			return res.redirect("/")
+		if typeof myVar == 'string' || myVar instanceof String
+			if req.user.userType == userType then return next()
+		else
+			for type in userType
+				if type == req.user.userType 
+					return next()
+
+		return res.redirect("/login")
+
+module.exports.use = (app) ->
 	app.use(passport.initialize());
 	app.use(passport.session());
 

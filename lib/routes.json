@@ -1,0 +1,14 @@
+[
+	{
+		"url": "/",
+		"title": "Index",
+		"models": [],
+		"template": "index"
+	},
+	{
+		"url": "/articles",
+		"title": "List",
+		"models": ["Article"],
+		"template": "index"
+	}
+]

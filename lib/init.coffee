@@ -37,10 +37,11 @@ module.exports = (app) ->
 	app.use express.methodOverride()
 	app.use express.session secret: config.session.secret
 
-	require('../lib/auth')(app)
+	require('../lib/auth').use(app)
 
 	
 	require("./resource").load(app)
+	require("./routes.coffee")(app)
 
 	console.log config.static.dir
 

@@ -1,19 +1,6 @@
 cache = require './cache'
+auth = require './auth'
 
-aclMiddleware = (userType) ->
-	return (req, res, next) ->
-		if userType == "all" then return next()
-
-		if !req.isAuthenticated()
-			return res.redirect("/")
-		if typeof myVar == 'string' || myVar instanceof String
-			if req.user.userType == userType then return next()
-		else
-			for type in userType
-				if type == req.user.userType 
-					return next()
-
-		return res.redirect("/login")
 
 deleteMiddleware = (model) ->
 	return (req, res, next) ->
@@ -94,17 +81,17 @@ add = (app, model) ->
 	options = model.crudOptions
 
 	if options.create?
-		app.post root + model.modelName.toLowerCase(), aclMiddleware(options.create), createMiddleware(model)
+		app.post root + model.modelName.toLowerCase(), auth.aclMiddleware(options.create), createMiddleware(model)
 
 	if options.update?
-		app.put root + model.modelName.toLowerCase() + "/:" + model_id_name, aclMiddleware(options.update), updateMiddleware(model)
+		app.put root + model.modelName.toLowerCase() + "/:" + model_id_name, auth.aclMiddleware(options.update), updateMiddleware(model)
 
 	if options.delete?
-		app.delete root + model.modelName.toLowerCase() + "/:" + model_id_name, aclMiddleware(options.delete), deleteMiddleware(model)
+		app.delete root + model.modelName.toLowerCase() + "/:" + model_id_name, auth.aclMiddleware(options.delete), deleteMiddleware(model)
 
 	if options.read?
-		app.get root + model.modelName.toLowerCase() + "/:" + model_id_name, aclMiddleware(options.read), getOneMiddleware(model)
-		app.get root + model.modelName.toLowerCase() + "s/:page", aclMiddleware(options.read), getPageMiddleware(model, app.config.models.onpage)
+		app.get root + model.modelName.toLowerCase() + "/:" + model_id_name, auth.aclMiddleware(options.read), getOneMiddleware(model)
+		app.get root + model.modelName.toLowerCase() + "s/:page", auth.aclMiddleware(options.read), getPageMiddleware(model, app.config.models.onpage)
 
 module.exports.load = (app) ->
 	console.log "Load models"
