@@ -3,12 +3,17 @@
 		"url": "/",
 		"title": "Index",
 		"models": [],
-		"template": "index"
+		"view": "index"
 	},
 	{
 		"url": "/articles",
 		"title": "List",
-		"models": ["Article"],
-		"template": "index"
+		"models": ["Article:list:create_date"],
+		"view": "index"
+	},
+	{
+		"url": "/articles",
+		"title_fieldl": "title"
+
 	}
 ]

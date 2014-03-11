@@ -6,6 +6,8 @@
 	"views":
 		{
 			"dir": "/views",
+			"layouts": "/views/layouts",
+			"main_layout": "main",
 			"engine": "jade",
 			"pretty": true
 		},
