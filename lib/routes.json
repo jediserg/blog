@@ -2,18 +2,39 @@
 	{
 		"url": "/",
 		"title": "Index",
-		"models": [],
+		"models": 	[
+						{
+							"name": "Article",
+							"action": "list",
+							"autopaggination": false,
+							"sort": "creation_date",
+							"perpage": 10
+						}
+					],
 		"view": "index"
 	},
 	{
 		"url": "/articles",
 		"title": "List",
-		"models": ["Article:list:create_date"],
-		"view": "index"
+		"models":	[
+						{
+							"name": "Article",
+							"action": "list",
+							"autopaggination": true,
+							"sort": "creation_date",
+							"perpage": "default" 
+						}
+					],
+		"view": "article/index"
 	},
 	{
-		"url": "/articles",
-		"title_fieldl": "title"
-
+		"url": "/articles/:article_id",
+		"models":	[
+						{
+							"name" : "Article",
+							"action": "get"
+						}
+					]
+		"view": "article/get"
 	}
 ]
