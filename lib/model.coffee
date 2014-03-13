@@ -1,11 +1,11 @@
-module.exports.getPage(model, cb) ->
+module.exports.getPage(page, sort_field, cb) ->
 	getResult = (objects, cb) ->
 		model.count({}).exec (err, count) ->
 			result = 
 				count: count
 				data: objects
 			console.log res
-			cb result
+			cb err, result
 
 	sort_opt = {}
 	sort_field = "_id"

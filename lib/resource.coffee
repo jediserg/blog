@@ -63,20 +63,7 @@ add = (app, model) ->
 		return
 
 	model_id_name = model.modelName.toLowerCase() + "Id"
-	app.param model_id_name, (req, res, next, id) ->
-		idField = model.idField
-		if not idField? then idField = "_id"
-		filter = {}
-		filter[idField] = id
-
-		model.findOne filter, (err, obj) ->
-			if err then return next(err)
-			req[model.modelName] = obj
-			return next()
-
-	app.param "page", (req, res, next, id) ->
-		req.page = id
-		next()
+	
 	root = app.config.models.root
 	options = model.crudOptions
 

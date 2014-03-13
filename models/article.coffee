@@ -1,4 +1,5 @@
 mongoose = require "mongoose"
+base = require "../lib/model"
 
 articles_at_page = 10
 
@@ -18,18 +19,20 @@ ArticleSchema = new mongoose.Schema({
 })
 
 ArticleSchema.statics.getPages = (num, cb) ->
-	model = @
-	@find({}).sort(date: 1).skip((num - 1) * articles_at_page).limit(articles_at_page).exec (err, articles) ->
-		if err
-			console.log err
-			cb({}, 0, 0)
-		else
-			model.count({}).exec (err, count) ->
-				if err
-					console.log err
-					cb({}, 0, 0)
-				else
-					cb(articles, count, articles_at_page)
+	base->getPage(num, create_date, cb)
+#	(num, cb) ->
+#	model = @
+#	@find({}).sort(date: 1).skip((num - 1) * articles_at_page).limit(articles_at_page).exec (err, articles) ->
+#		if err
+#			console.log err
+#			cb({}, 0, 0)
+#		else
+#			model.count({}).exec (err, count) ->
+#				if err
+#					console.log err
+#					cb({}, 0, 0)
+#				else
+#					cb(articles, count, articles_at_page)
 ArticleSchema.statics.crudOptions = 
 	create : "admin"
 	read   : "all"
